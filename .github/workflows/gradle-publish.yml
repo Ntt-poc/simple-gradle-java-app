@@ -37,7 +37,7 @@ jobs:
 
     - name: Printing files
       run: 
-        ls        
+        ls build      
 
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
@@ -48,3 +48,7 @@ jobs:
     #  env:
     #    USERNAME: ${{ github.actor }}
     #    TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: build/
